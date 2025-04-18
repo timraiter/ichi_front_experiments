@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ichi_front_experiments/static/css/main.74d6ef59.css",
-    "main.js": "/ichi_front_experiments/static/js/main.a4c83ef3.js",
+    "main.js": "/ichi_front_experiments/static/js/main.ec0e4427.js",
     "index.html": "/ichi_front_experiments/index.html",
     "main.74d6ef59.css.map": "/ichi_front_experiments/static/css/main.74d6ef59.css.map",
-    "main.a4c83ef3.js.map": "/ichi_front_experiments/static/js/main.a4c83ef3.js.map"
+    "main.ec0e4427.js.map": "/ichi_front_experiments/static/js/main.ec0e4427.js.map"
   },
   "entrypoints": [
     "static/css/main.74d6ef59.css",
-    "static/js/main.a4c83ef3.js"
+    "static/js/main.ec0e4427.js"
   ]
 }
