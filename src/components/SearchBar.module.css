@@ -1,0 +1,36 @@
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background-color: #4A4F59;
+  border-radius: 8px;
+  padding: 8px 8px;
+  margin: 0 8px 8px 8px;
+  flex-shrink: 0;
+}
+
+.iconSearch {
+  margin-right: 8px;
+  fill: #9A9A9E;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: #9A9A9E;
+  opacity: 1;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+} 

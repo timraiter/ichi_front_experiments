@@ -1,0 +1,53 @@
+.selectorWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.codeGroupSelector {
+  width: 240px;
+  background-color: #555A64;
+  border-radius: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-height: 560px;
+  min-height: 560px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  flex-shrink: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #878D9A transparent;
+}
+
+/* Only show scrollbar when actively hovering/scrolling */
+.codeGroupSelector:hover {
+  scrollbar-color: #878D9A transparent;
+}
+
+.codeGroupSelector::-webkit-scrollbar {
+  width: 6px;
+}
+
+.codeGroupSelector::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+}
+
+.codeGroupSelector::-webkit-scrollbar-thumb {
+  background-color: #878D9A;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.codeGroupSelector:hover::-webkit-scrollbar-thumb {
+  background-color: #878D9A;
+}
+
+.codeGroupSelector:hover::-webkit-scrollbar-thumb:hover {
+  background-color: #878D9A;
+} 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Group Selector Preview</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Wrapper Div -->
+    <div class="selector-wrapper">
+
+        <div class="code-group-selector" id="selector-container">
+            <div class="search-container">
+                <svg class="icon-search" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.319 14.4326C19.763 12.811 20.5 10.7326 20.5 8.50001C20.5 3.80587 16.6942 0 12 0C7.30587 0 3.5 3.80587 3.5 8.50001C3.5 13.1941 7.30587 17 12 17C13.9894 17 15.8406 16.3714 17.3546 15.2758L22.7071 20.6283C23.0976 21.0188 23.7308 21.0188 24.1213 20.6283C24.5118 20.2378 24.5118 19.6046 24.1213 19.2141L18.7688 13.8616C18.5976 13.6905 18.488 13.5765 18.319 14.4326ZM5.5 8.50001C5.5 4.91016 8.41015 2 12 2C15.5898 2 18.5 4.91016 18.5 8.50001C18.5 12.0899 15.5898 15 12 15C8.41015 15 5.5 12.0899 5.5 8.50001Z" fill="#9A9A9E"/></svg>
+                <input type="search" id="search-input" class="search-input" placeholder="Search code groups">
+            </div>
+
+            <div class="list-container" id="list-container">
+                <!-- Dynamic content here -->
+                </div>
+        </div>
+
+        <!-- Hover Panel Div -->
+        <div id="hover-panel">
+            <!-- Hover content will be injected here -->
+        </div>
+
+    </div><!-- End Wrapper Div -->
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

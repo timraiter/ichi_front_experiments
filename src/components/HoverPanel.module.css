@@ -1,0 +1,93 @@
+.hoverPanel {
+  width: 464px;
+  max-height: 560px;
+  background-color: #555A64;
+  border-radius: 16px;
+  padding: 16px;
+  overflow-y: auto;
+  min-height: 560px;
+  color: #C7C7CC;
+  font-size: 14px;
+  font-weight: 300;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  will-change: opacity;
+  scrollbar-width: thin; /* Show Firefox scrollbar with thin width */
+  scrollbar-color: #878D9A transparent;
+}
+
+/* Only show scrollbar when actively hovering/scrolling */
+.hoverPanel:hover {
+  scrollbar-color: #878D9A transparent;
+}
+
+.hoverPanel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hoverPanel::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+}
+
+.hoverPanel::-webkit-scrollbar-thumb {
+  background-color: #878D9A;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.hoverPanel:hover::-webkit-scrollbar-thumb {
+  background-color: #878D9A;
+}
+
+.hoverPanel:hover::-webkit-scrollbar-thumb:hover {
+  background-color: #878D9A;
+}
+
+.visible {
+  display: block;
+  opacity: 1;
+}
+
+.noDetails {
+  padding: 10px;
+  color: #8A8A8E;
+}
+
+.noSpecificDetails {
+  color: #8A8A8E;
+  margin-top: 10px;
+}
+
+.hoverPanel h4 {
+  color: #8A8A8E;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  padding-top: 2px;
+}
+
+.hoverPanel h4:first-child {
+  margin-top: 0px;
+}
+
+.hoverPanel p {
+  color: #E0E0E0;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+/* Add padding to the container div that holds each section */
+.hoverPanel > div {
+  padding-top: 8px;
+  margin-top: 0;
+}
+
+.hoverPanel > div:first-child {
+  padding-top: 0;
+} 

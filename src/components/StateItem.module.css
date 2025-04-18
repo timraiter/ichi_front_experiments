@@ -1,0 +1,257 @@
+.stateItem {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.stateItem:last-child {
+  margin-bottom: 0;
+}
+
+/* Style for expanded but not active states */
+.stateItem.expanded:not(.activeSelection) {
+  background-color: rgba(74, 79, 89, 0.8); /* #4A4F59 with 50% opacity */
+  margin: 0 8px 4px 8px;
+  border-radius: 8px;
+}
+
+.stateItem.expanded:not(.activeSelection):last-child {
+  margin-bottom: 0;
+}
+
+.stateItem:hover:not(.activeSelection) {
+  background-color: #4A4F59;
+  margin: 0 8px 4px 8px;
+  border-radius: 8px;
+}
+
+.stateItem:last-child:hover:not(.activeSelection) {
+  margin-bottom: 0;
+}
+
+.stateItem.activeSelection {
+  background-color: #4A4F59;
+  margin: 0 8px 4px 8px;
+  border-radius: 8px;
+}
+
+.stateItem.activeSelection:last-child {
+  margin-bottom: 0;
+}
+
+/* Add padding adjustment for expanded items */
+.stateItem.expanded:not(.activeSelection) .stateHeader {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.stateItem.expanded:not(.activeSelection) .cityList {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.stateItem.expanded:not(.activeSelection) .cityRow {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.stateHeader {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease-out;
+}
+
+.stateItem.activeSelection .stateHeader,
+.stateItem:hover:not(.activeSelection) .stateHeader {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.stateItem.activeSelection .cityList,
+.stateItem:hover:not(.activeSelection) .cityList {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.stateItem.activeSelection .cityRow,
+.stateItem:hover:not(.activeSelection) .cityRow {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.stateHeader:hover {
+  /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.chevron {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  fill: #A1A9BB;
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+.stateItem.expanded .chevron {
+  transform: rotate(90deg);
+}
+
+.stateName {
+  flex-grow: 1;
+  color: #E0E0E0;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activeBadge {
+  background-color: #A3E6A3;
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin-left: 10px;
+  color: #1C1C1E;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  animation: badgeAppear 0.3s ease-out;
+  pointer-events: none; /* Make it non-interactive */
+}
+
+/* Base after element - no animation by default */
+.activeBadge::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0; /* Hide by default */
+}
+
+
+
+/* Badge appear animation */
+@keyframes badgeAppear {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cityList {
+  padding-left: 0;
+  padding-top: 5px;
+  padding-bottom: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+}
+
+.stateItem.expanded .cityList {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+
+.cityRow {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease-out;
+}
+
+.cityRow:hover {
+  background-color: #525762;
+}
+
+.radio {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Active radio styling */
+.radioOn circle:first-child {
+  fill: #E9E9FF;
+  stroke: #A1A9BB;
+  stroke-width: 1;
+}
+
+.radioOn circle:last-child {
+  fill: #2A2DFF;
+}
+
+/* Inactive radio styling */
+.radioOff circle {
+  fill: #878D9A;
+  stroke: #A1A9BB;
+  stroke-width: 1;
+}
+
+.cityName {
+  color: #C7C7CC;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.plusState {
+  color: #8A8A8E;
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.cityRow.selected .cityName {
+  color: #FFFFFF;
+}
+
+.notListedContainer {
+  margin-top: 8px;
+  padding: 0 8px;
+  padding-bottom: 8px;
+  font-size: 12px;
+}
+
+.notListedText {
+  color: #8A8A8E;
+  display: block;
+}
+
+.requestLink {
+  color: #0A84FF;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin-top: 4px;
+}
+
+.requestLink:hover {
+  color: #58a6ff;
+} 

@@ -1,0 +1,326 @@
+/* Basic Reset & Body Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* Slightly lighter dark background */
+    background-color: #1C1C1E;
+    color: #E0E0E0; /* Slightly lighter default text */
+    padding: 10px;
+    display: flex;
+    /* Center the wrapper horizontally */
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+}
+
+/* Wrapper for selector and hover panel */
+.selector-wrapper {
+    display: flex; /* Arrange selector and panel side-by-side */
+    align-items: flex-start; /* Align tops */
+    gap: 10px; /* Space between selector and panel */
+}
+
+/* Main container - adjusted width and color */
+.code-group-selector {
+    width: 240px; /* Set fixed width */
+    /* max-width: 400px; */ /* Removed max-width */
+    /* Matching image background */
+    background-color: #3A3A3C;
+    border-radius: 10px;
+    /* Removed margin: 10px; handled by wrapper */
+    overflow: hidden; /* Keep this for inner content clipping, overflow-y handles scroll */
+    padding-top: 10px; /* Add padding top */
+    padding-bottom: 10px; /* Padding inside */
+    max-height: 560px; /* Limit height */
+    min-height: 560px; /* Prevent shrinking during search */
+    overflow-y: auto; /* Enable vertical scroll when content overflows */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack children vertically */
+    font-size: 14px; /* Set base font size */
+    flex-shrink: 0; /* Prevent selector from shrinking */
+}
+
+/* Minimalistic Scrollbar Styles (WebKit) */
+.code-group-selector::-webkit-scrollbar,
+#hover-panel::-webkit-scrollbar { /* Apply to both */
+    width: 6px; /* Width of the scrollbar */
+}
+
+.code-group-selector::-webkit-scrollbar-track,
+#hover-panel::-webkit-scrollbar-track { /* Apply to both */
+    background: transparent; /* Make track invisible */
+    margin-top: 10px; /* Match container padding */
+    margin-bottom: 10px; /* Match container padding */
+}
+
+.code-group-selector::-webkit-scrollbar-thumb,
+#hover-panel::-webkit-scrollbar-thumb { /* Apply to both */
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle scrollbar thumb */
+    border-radius: 3px; /* Rounded thumb */
+}
+
+.code-group-selector::-webkit-scrollbar-thumb:hover,
+#hover-panel::-webkit-scrollbar-thumb:hover { /* Apply to both */
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly more visible on hover */
+}
+
+
+/* Search Bar - adjusted background */
+.search-container {
+    display: flex;
+    align-items: center;
+    /* Matching image search background */
+    background-color: #48484A;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 0 15px 15px 15px;
+    flex-shrink: 0; /* Prevent search bar from shrinking */
+}
+
+.search-container svg {
+    margin-right: 8px;
+    fill: #9A9A9E; /* Slightly adjusted icon color */
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.search-input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 14px; /* Adjusted font size */
+    outline: none;
+}
+ .search-input::placeholder {
+     color: #9A9A9E; /* Adjusted placeholder color */
+     opacity: 1; /* Firefox */
+ }
+
+/* Style the 'X' clear button in WebKit browsers */
+.search-input::-webkit-search-cancel-button {
+    /* Use filter to force the icon to white */
+    filter: brightness(0) invert(1);
+    cursor: pointer; /* Add pointer cursor for consistency */
+    /* -webkit-appearance: none; /* Uncomment this and add custom background-image if filter doesn't work */
+}
+
+/* List Area */
+.list-container {
+     flex-grow: 1; /* Allow list to take remaining space */
+     overflow-y: auto; /* Shouldn't be needed if main container scrolls */
+     /* padding-bottom: 10px; /* Removed, padding is on main container */
+}
+
+/* State Item - adjusted active background */
+.state-item.active-selection {
+    /* Background applied only when a city within it is selected */
+    background-color: #48484A;
+}
+ /* Add hover effect for states */
+.state-header:hover {
+     background-color: rgba(255, 255, 255, 0.1); /* More visible hover */
+}
+
+
+.state-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    cursor: pointer;
+    user-select: none; /* Prevent text selection on click */
+    border-top: 1px solid #48484A; /* Separator line */
+     transition: background-color 0.15s ease-out; /* Smooth transition */
+}
+/* Remove top border for the very first item */
+.list-container > .state-item:first-child > .state-header {
+     border-top: none;
+}
+
+
+/* Removed explicit hover style here, combined above */
+
+.state-header svg.chevron {
+    margin-right: 10px;
+    width: 22px;
+    height: 22px;
+    fill: #9A9A9E; /* Adjusted chevron color */
+    transition: transform 0.2s ease-in-out;
+    flex-shrink: 0;
+}
+
+/* Rotate chevron when expanded */
+.state-item.expanded .state-header svg.chevron {
+     transform: rotate(90deg);
+}
+
+
+.state-name {
+    flex-grow: 1;
+    color: #E0E0E0; /* Adjusted state name color */
+    font-size: 15px; /* Slightly larger than base */
+    font-weight: 500;
+    /* Prevent text wrapping */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Active Badge - style matches image */
+.active-badge {
+    background-color: #A3E6A3; /* Lighter green */
+    border-radius: 6px; /* Slightly less rounded */
+    padding: 3px 8px;
+    margin-left: 10px;
+    color: #1C1C1E; /* Dark text */
+    font-size: 12px;
+    font-weight: 600; /* Slightly bolder */
+    flex-shrink: 0;
+}
+
+/* City List */
+.city-list {
+    padding-left: 0; /* Removed indentation, align with header */
+    padding-top: 5px;
+    padding-bottom: 10px;
+    max-height: 0; /* Start collapsed */
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+     border-top: 1px solid #48484A; /* Separator line */
+}
+
+.state-item.expanded .city-list {
+    max-height: 500px; /* Adjust if more cities expected */
+    opacity: 1;
+    padding-top: 5px; /* Re-apply padding when expanded */
+    padding-bottom: 10px;
+}
+
+
+.city-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    user-select: none;
+     transition: background-color 0.15s ease-out; /* Smooth transition */
+}
+/* Add hover effect for cities */
+ .city-row:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* More visible hover */
+}
+
+.city-row svg.radio {
+    margin-right: 12px;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.city-name {
+    color: #C7C7CC;
+    font-size: 14px; /* Adjusted font size */
+     /* Prevent text wrapping */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Style for the selected city text */
+.city-row.selected .city-name {
+    color: #FFFFFF;
+}
+
+/* "City not listed?" section */
+.not-listed-container {
+    /* display: flex; */ /* Removed flex display */
+    margin-top: 10px;
+    padding: 0 15px; /* Align with header content */
+    /* align-items: center; */ /* Removed */
+    font-size: 13px; /* Adjusted font size */
+}
+
+.not-listed-text {
+     color: #8A8A8E;
+     /* Inherits font-size from container */
+     display: block; /* Force onto its own line */
+}
+
+.request-link {
+    color: #0A84FF; /* Standard iOS blue link color */
+    text-decoration: underline;
+    cursor: pointer;
+    /* margin-left: 4px; */ /* Removed margin-left */
+    /* Inherits font-size from container */
+    display: block; /* Force onto its own line */
+    margin-top: 4px; /* Add space above the link */
+}
+.request-link:hover {
+    color: #58a6ff;
+}
+
+/* SVG Icon Colors - Adjusted */
+.icon-radio-off { fill: #8A8A8E; }
+.icon-radio-on { fill: #0A7AFF; } /* Blue for selected radio */
+.icon-chevron { fill: #9A9A9E; }
+.icon-search { fill: #9A9A9E; }
+
+
+ /* --- Hover Panel Styles --- */
+#hover-panel {
+    width: 464px; /* Adjusted width */
+    max-height: 560px; /* Match selector height */
+    background-color: #2C2C2E; /* Slightly different dark background */
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: auto;
+    display: none; /* Hidden by default */
+    min-height: 560px; /* Prevent height changes */
+    color: #C7C7CC; /* Lighter text color for details */
+    font-size: 13px; /* Slightly smaller font for details */
+     flex-shrink: 0; /* Prevent panel from shrinking */
+     /* Add transition for smoother appearance */
+     opacity: 0;
+     transition: opacity 0.2s ease-in-out;
+     will-change: opacity; /* Hint for smoother transitions */
+}
+
+#hover-panel.visible {
+    display: block; /* Show the panel */
+    opacity: 1;
+}
+
+/* Style for the added municipal code line */
+#hover-panel .municipal-code-info {
+    color: #FFFFFF; /* White text */
+    margin-bottom: 10px; /* Space below */
+    padding-bottom: 10px; /* Space below */
+    border-bottom: 1px solid #48484A; /* Separator line */
+    font-weight: 500;
+}
+
+#hover-panel h4 { /* Category Title */
+    color: #8A8A8E; /* Grey color like 'Summary' */
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+ #hover-panel h4:first-child {
+    margin-top: 0; /* No top margin for the very first category */
+}
+
+
+#hover-panel p { /* Detail Item */
+    color: #E0E0E0; /* Main text color */
+    margin-bottom: 6px;
+    line-height: 1.4;
+} 

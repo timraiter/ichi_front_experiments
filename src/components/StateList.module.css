@@ -1,0 +1,9 @@
+.listContainer {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+ 
+.noResults {
+  color: #8A8A8E;
+  padding: 15px;
+} 
